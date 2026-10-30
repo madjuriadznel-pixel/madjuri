@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,8 +95,8 @@ nav a:hover {
 }
 
 .profile {
-    width: 260px;
-    height: 260px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     padding: 7px;
     background: linear-gradient(135deg, #00d4ff, #0866ff);
@@ -108,7 +109,7 @@ nav a:hover {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #071426;
+    border: 4px solid #2563eb;
 }
 
 .hero-text {
