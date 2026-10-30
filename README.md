@@ -1,682 +1,479 @@
-#  <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#070b18">
-<title>Madjuri | IT Portfolio</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Adznel J. Madjuri | Portfolio</title>
 
 <style>
-:root {
-  --bg: #070b18;
-  --card: rgba(16, 29, 52, .78);
-  --blue: #3984ff;
-  --cyan: #35e5ff;
-  --white: #f4f8ff;
-  --muted: #a2b1cb;
-}
 
+/* GENERAL SETTINGS */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 85px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
-  background: var(--bg);
-  color: var(--white);
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
-  line-height: 1.7;
+    font-family: 'Arial', sans-serif;
+    background: #071426;
+    color: white;
+    overflow-x: hidden;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+/* ANIMATED BACKGROUND */
+body::before {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: #087bff;
+    filter: blur(160px);
+    opacity: 0.3;
+    top: -100px;
+    left: -100px;
+    z-index: -1;
 }
 
-.container {
-  width: min(1100px, 90%);
-  margin: auto;
+body::after {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: #00d4ff;
+    filter: blur(160px);
+    opacity: 0.2;
+    bottom: -100px;
+    right: -100px;
+    z-index: -1;
 }
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(7, 11, 24, .85);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid #1a2943;
-}
-
+/* NAVIGATION */
 nav {
-  min-height: 75px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(7, 20, 38, 0.85);
+    backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0, 195, 255, 0.2);
 }
 
 .logo {
-  font-size: 1.4rem;
-  font-weight: 800;
+    color: #00d4ff;
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
-.logo span, .gradient {
-  color: var(--cyan);
-  text-shadow: 0 0 22px #35e5ff55;
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: 0.3s;
 }
 
-.nav-links {
-  display: flex;
-  gap: 25px;
-  list-style: none;
+nav a:hover {
+    color: #00d4ff;
 }
 
-.nav-links a {
-  color: var(--muted);
-  transition: .3s;
-}
-
-.nav-links a:hover {
-  color: var(--cyan);
-}
-
-.menu-btn {
-  display: none;
-  background: none;
-  color: white;
-  border: 1px solid #30415e;
-  border-radius: 8px;
-  padding: 5px 11px;
-  font-size: 1.4rem;
-}
-
+/* HERO SECTION */
 .hero {
-  min-height: 88vh;
-  display: grid;
-  grid-template-columns: 1.2fr .8fr;
-  align-items: center;
-  gap: 45px;
-  position: relative;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 60px;
+    padding: 70px 8%;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: #155dff25;
-  filter: blur(100px);
-  border-radius: 50%;
-  left: 10%;
-  top: 15%;
-  z-index: -1;
-  animation: glow 6s infinite alternate;
+.profile {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    padding: 7px;
+    background: linear-gradient(135deg, #00d4ff, #0866ff);
+    box-shadow: 0 0 30px #008cff;
+    animation: float 4s ease-in-out infinite;
 }
 
-.intro {
-  animation: appear 1s ease both;
+.profile img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #071426;
 }
 
-.eyebrow {
-  display: inline-block;
-  color: var(--cyan);
-  border: 1px solid #35e5ff44;
-  background: #35e5ff0b;
-  padding: 7px 14px;
-  border-radius: 30px;
-  font-size: .8rem;
-  margin-bottom: 20px;
+.hero-text {
+    max-width: 550px;
+    animation: slideUp 1.2s ease;
 }
 
-h1 {
-  font-size: clamp(2.7rem, 5vw, 4.7rem);
-  line-height: 1.12;
-  letter-spacing: -2px;
-  margin-bottom: 22px;
+.hero-text h3 {
+    color: #00d4ff;
+    font-size: 22px;
 }
 
-.intro p, .section-desc {
-  color: var(--muted);
-  margin-bottom: 28px;
+.hero-text h1 {
+    font-size: 45px;
+    margin: 15px 0;
 }
 
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
+.hero-text h1 span {
+    color: #00d4ff;
+}
+
+.hero-text p {
+    color: #b9c9dc;
+    line-height: 1.8;
+    font-size: 17px;
 }
 
 .btn {
-  display: inline-block;
-  padding: 12px 21px;
-  border-radius: 10px;
-  font-weight: 700;
-  transition: .3s;
-}
-
-.primary {
-  color: #061020;
-  background: linear-gradient(110deg, var(--cyan), #79aaff);
-}
-
-.secondary {
-  border: 1px solid #30415e;
+    display: inline-block;
+    margin-top: 25px;
+    padding: 13px 30px;
+    background: #00bfff;
+    color: #071426;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.4s;
 }
 
 .btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 25px #35e5ff35;
+    background: white;
+    box-shadow: 0 0 25px #00d4ff;
+    transform: translateY(-5px);
 }
 
-/* Profile picture */
-
-.profile-area {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: appear 1.2s ease both;
-}
-
-.profile-frame {
-  width: min(330px, 75vw);
-  aspect-ratio: 1;
-  padding: 7px;
-  border-radius: 50%;
-  position: relative;
-  background: conic-gradient(
-    from 0deg,
-    var(--cyan),
-    #2563ff,
-    #9d5cff,
-    var(--cyan)
-  );
-  box-shadow: 0 0 25px #35e5ff40,
-              0 0 80px #2563ff20;
-  animation: float 4s ease-in-out infinite;
-}
-
-.profile-frame::before {
-  content: "";
-  position: absolute;
-  inset: -12px;
-  border: 1px solid #35e5ff55;
-  border-radius: 50%;
-  animation: rotate 12s linear infinite;
-}
-
-.profile-frame img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 50%;
-  border: 5px solid var(--bg);
-  background: #101a30;
-}
-
-.status {
-  position: absolute;
-  bottom: 12%;
-  right: -5px;
-  background: #10223a;
-  border: 1px solid #35e5ff77;
-  color: var(--cyan);
-  padding: 8px 13px;
-  border-radius: 30px;
-  font-size: .75rem;
-  box-shadow: 0 0 20px #35e5ff20;
-}
-
-/* Sections */
-
-section:not(.hero) {
-  padding: 85px 0;
+/* SECTIONS */
+section {
+    padding: 75px 8%;
+    text-align: center;
 }
 
 .section-title {
-  margin-bottom: 32px;
+    font-size: 32px;
+    margin-bottom: 35px;
+    color: #00d4ff;
 }
 
-.section-title small {
-  color: var(--cyan);
-  letter-spacing: 3px;
-  font-weight: 700;
-}
-
-.section-title h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.25;
-  margin-top: 8px;
-}
-
-.glass {
-  padding: 28px;
-  border-radius: 18px;
-  border: 1px solid #7895c426;
-  background: var(--card);
-  backdrop-filter: blur(14px);
-  transition: transform .35s, border-color .35s,
-              box-shadow .35s;
-}
-
-.glass:hover {
-  transform: translateY(-6px);
-  border-color: #35e5ff88;
-  box-shadow: 0 12px 35px #0003, 0 0 22px #35e5ff0b;
-}
-
-.glass p {
-  color: var(--muted);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.skill-icon {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.glass h3 {
-  margin-bottom: 7px;
-}
-
-.project-icon {
-  font-size: 2.8rem;
-  margin-bottom: 12px;
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 16px 0;
-}
-
-.tags span {
-  color: var(--cyan);
-  background: #35e5ff0c;
-  border: 1px solid #35e5ff30;
-  padding: 3px 9px;
-  border-radius: 6px;
-  font-size: .75rem;
-}
-
-.project-link {
-  color: var(--cyan);
-  font-weight: 600;
-}
-
-.contact {
-  text-align: center;
-  padding: 40px 25px !important;
-}
-
-.contact .section-desc {
-  max-width: 550px;
-  margin: 15px auto 25px;
-}
-
-footer {
-  text-align: center;
-  color: var(--muted);
-  padding: 25px 0;
-  border-top: 1px solid #1a2943;
-  font-size: .85rem;
-}
-
-/* Scroll animations */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity .7s ease, transform .7s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@keyframes appear {
-  from { opacity: 0; transform: translateY(25px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-@keyframes rotate {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes glow {
-  from { transform: scale(1); }
-  to { transform: scale(1.2) translate(20px, -15px); }
-}
-
-@media (max-width: 800px) {
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-    padding-top: 65px;
-    gap: 45px;
-  }
-
-  .intro {
-    order: 2;
-  }
-
-  .profile-area {
-    order: 1;
-  }
-
-  .buttons {
-    justify-content: center;
-  }
-
-  .profile-frame {
-    width: min(260px, 65vw);
-  }
-
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .menu-btn {
-    display: block;
-    cursor: pointer;
-  }
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 75px;
-    left: 0;
-    right: 0;
-    background: #0b1224;
-    padding: 22px 5%;
-    flex-direction: column;
-    gap: 16px;
-    border-bottom: 1px solid #30415e;
-  }
-
-  .nav-links.open {
+/* GLASS CARDS */
+.card-container {
     display: flex;
-  }
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
 }
 
-@media (max-width: 520px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  section:not(.hero) {
-    padding: 65px 0;
-  }
-
-  h1 {
-    letter-spacing: -1px;
-  }
-
-  .glass {
-    padding: 23px;
-  }
+.card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(0,212,255,0.25);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 18px;
+    width: 280px;
+    transition: 0.4s;
+    animation: slideUp 1s ease;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation: none !important;
-    scroll-behavior: auto !important;
-    transition: none !important;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 0 25px rgba(0,212,255,0.3);
+    border-color: #00d4ff;
 }
+
+.card h3 {
+    color: #00d4ff;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.card p {
+    color: #c4d2e3;
+    line-height: 1.7;
+}
+
+/* ABOUT */
+.about-text {
+    max-width: 750px;
+    margin: auto;
+    color: #c4d2e3;
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+/* SKILLS */
+.skills {
+    max-width: 750px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill {
+    padding: 13px 25px;
+    background: rgba(0,190,255,0.12);
+    border: 1px solid #00bfff;
+    color: #00d4ff;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.skill:hover {
+    background: #00bfff;
+    color: #071426;
+    transform: scale(1.1);
+}
+
+/* CONTACT */
+.contact p {
+    margin: 15px;
+    color: #c4d2e3;
+    font-size: 17px;
+}
+
+/* FOOTER */
+footer {
+    padding: 25px;
+    text-align: center;
+    background: #030c18;
+    color: #8ca4bd;
+    border-top: 1px solid rgba(0,212,255,0.2);
+}
+
+/* ANIMATIONS */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-18px);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 5px;
+        font-size: 13px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 35px;
+    }
+
+    .profile {
+        width: 210px;
+        height: 210px;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .hero-text h3 {
+        font-size: 18px;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+
+    .section-title {
+        font-size: 27px;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-  <nav class="container">
-    <a class="logo" href="#home">MADJURI<span>.</span></a>
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">ADZNEL.</div>
 
-    <button class="menu-btn" id="menuBtn"
-      aria-label="Open menu" aria-expanded="false">☰</button>
-
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main>
-  <section class="hero container" id="home">
-
-    <div class="intro">
-      <span class="eyebrow">WELCOME TO MY PORTFOLIO</span>
-
-      <h1>
-        Hi, I'm <span class="gradient">Madjuri</span><br>
-        Future IT Professional.
-      </h1>
-
-      <p>
-        An aspiring IT professional passionate about technology,
-        programming, networking, and modern web design.
-        Learning today, building for tomorrow.
-      </p>
-
-      <div class="buttons">
-        <a href="#projects" class="btn primary">Explore Projects ↗</a>
-        <a href="#contact" class="btn secondary">Contact Me</a>
-      </div>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
     </div>
+</nav>
 
-    <div class="profile-area">
-      <div class="profile-frame">
-        <!-- Put Profile.jpg beside index.html -->
-        <img src="profile.jpg" alt="My Profile Picture">
-          onerror="this.style.visibility='hidden'">
-        <span class="status">● IT Student</span>
-      </div>
-    </div>
+<!-- HOME -->
+<section class="hero" id="home">
 
-  </section>
+    <div class="profile">
+    <img src="profile.jpg" alt="Adznel's Profile Picture">
+</div>
 
-  <section id="about">
-    <div class="container reveal">
-      <div class="section-title">
-        <small>01 / ABOUT ME</small>
-        <h2>Who <span class="gradient">I Am</span></h2>
-      </div>
+    <div class="hero-text">
+        <h3>Hello, Welcome to My Portfolio!</h3>
 
-      <div class="glass">
+        <h1>I'm <span>Adznel J. Madjuri</span></h1>
+
         <p>
-          Hello! I'm Madjuri, an Information Technology student
-          interested in web development, programming, and computer
-          networking. I enjoy learning new skills and creating
-          projects that turn ideas into practical digital experiences.
-          My goal is to continue improving and become a skilled IT
-          professional.
+            I am an Information Technology student
+            at MSU-SULU College. I love programming,
+            web development, networking, and exploring
+            modern technologies.
         </p>
-      </div>
+
+        <a href="#about" class="btn">Explore More</a>
     </div>
-  </section>
 
-  <section id="skills">
-    <div class="container reveal">
-      <div class="section-title">
-        <small>02 / MY SKILLS</small>
-        <h2>What I'm <span class="gradient">Learning</span></h2>
-      </div>
+</section>
 
-      <div class="grid">
-        <article class="glass">
-          <div class="skill-icon">🌐</div>
-          <h3>HTML</h3>
-          <p>Creating the structure of web pages.</p>
-        </article>
+<!-- ABOUT -->
+<section id="about">
 
-        <article class="glass">
-          <div class="skill-icon">🎨</div>
-          <h3>CSS</h3>
-          <p>Designing layouts, effects, and animations.</p>
-        </article>
+    <h2 class="section-title">About Me</h2>
 
-        <article class="glass">
-          <div class="skill-icon">💻</div>
-          <h3>Programming</h3>
-          <p>Learning coding fundamentals and logic.</p>
-        </article>
+    <p class="about-text">
+        My name is Adznel J. Madjuri. I am an IT student
+        who enjoys learning new technologies and
+        developing creative digital projects.
+        My goal is to improve my programming skills
+        and become a successful IT professional.
+    </p>
 
-        <article class="glass">
-          <div class="skill-icon">🖧</div>
-          <h3>Networking</h3>
-          <p>Understanding IP addresses, routers, and switches.</p>
-        </article>
+</section>
 
-        <article class="glass">
-          <div class="skill-icon">⚙️</div>
-          <h3>GitHub</h3>
-          <p>Managing and publishing website projects.</p>
-        </article>
+<!-- SKILLS -->
+<section id="skills">
 
-        <article class="glass">
-          <div class="skill-icon">🚀</div>
-          <h3>Problem Solving</h3>
-          <p>Developing solutions through technology.</p>
-        </article>
-      </div>
+    <h2 class="section-title">My Skills</h2>
+
+    <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">C++</div>
+        <div class="skill">Networking</div>
+        <div class="skill">Web Development</div>
     </div>
-  </section>
 
-  <section id="projects">
-    <div class="container reveal">
-      <div class="section-title">
-        <small>03 / MY WORK</small>
-        <h2>Featured <span class="gradient">Projects</span></h2>
-      </div>
+</section>
 
-      <div class="grid">
-        <article class="glass">
-          <div class="project-icon">🌌</div>
-          <h3>Personal Portfolio</h3>
-          <p>A website introducing my background,
-            learning journey, and projects.</p>
-          <div class="tags">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span>
-          </div>
-          <a class="project-link"
-            href="https://madjuriadznel-pixel.github.io/Portfolio---Madjuri-/"
-            target="_blank" rel="noopener noreferrer">
-            View Website ↗
-          </a>
-        </article>
+<!-- PROJECTS -->
+<section id="projects">
 
-        <article class="glass">
-          <div class="project-icon">💡</div>
-          <h3>Upcoming Project</h3>
-          <p>A space for my next web development or
-            information technology project.</p>
-          <div class="tags">
-            <span>Web Design</span><span>IT</span>
-          </div>
-          <a class="project-link" href="#contact">Get in Touch ↗</a>
-        </article>
-      </div>
-    </div>
-  </section>
+    <h2 class="section-title">My Projects</h2>
 
-  <section id="contact">
-    <div class="container reveal">
-      <div class="glass contact">
-        <div class="section-title">
-          <small>04 / CONTACT</small>
-          <h2>Let's Connect <span class="gradient">!</span></h2>
+    <div class="card-container">
+
+        <div class="card">
+            <h3>Personal Portfolio</h3>
+            <p>
+                A modern personal website
+                showcasing my profile, skills,
+                and personal information.
+            </p>
         </div>
 
-        <p class="section-desc">
-          Interested in my projects or learning journey?
-          Visit my GitHub profile to see my work.
-        </p>
+        <div class="card">
+            <h3>Network Learning</h3>
+            <p>
+                A learning website about computer
+                networking, devices, Wi-Fi,
+                routers, and IP addresses.
+            </p>
+        </div>
 
-        <a class="btn primary"
-          href="https://github.com/madjuriadznel-pixel"
-          target="_blank" rel="noopener noreferrer">
-          Visit My GitHub ↗
-        </a>
-      </div>
+        <div class="card">
+            <h3>Arduino Project</h3>
+            <p>
+                An automatic vehicle gate detector
+                concept using Arduino technology.
+            </p>
+        </div>
+
     </div>
-  </section>
-</main>
 
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+
+    <h2 class="section-title">Contact Me</h2>
+
+    <p>Email: madjuriadznel@gmail.com</p>
+    <p>Location: Alat, Jolo, Sulu</p>
+
+    <a href="mailto:madjuriadznel@gmail.com" class="btn">
+        Send Me an Email
+    </a>
+
+</section>
+
+<!-- PERSONAL INFORMATION -->
+<section>
+
+    <h2 class="section-title">Personal Information</h2>
+
+    <div class="card-container">
+
+        <div class="card">
+            <h3>Full Name</h3>
+            <p>Adznel J. Madjuri</p>
+        </div>
+
+        <div class="card">
+            <h3>Course</h3>
+            <p>Information Technology</p>
+        </div>
+
+        <div class="card">
+            <h3>College</h3>
+            <p>MSU-SULU College</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <div class="container">
-    © <span id="year"></span> Madjuri | Designed with HTML, CSS & JavaScript
-  </div>
+    <p>© 2026 Adznel J. Madjuri | My Personal Portfolio</p>
+    <p>Designed with HTML & CSS</p>
 </footer>
-
-<script>
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
-
-menuBtn.addEventListener("click", () => {
-  const open = navLinks.classList.toggle("open");
-  menuBtn.setAttribute("aria-expanded", String(open));
-  menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-  menuBtn.textContent = open ? "✕" : "☰";
-});
-
-navLinks.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("open");
-    menuBtn.setAttribute("aria-expanded", "false");
-    menuBtn.setAttribute("aria-label", "Open menu");
-    menuBtn.textContent = "☰";
-  });
-});
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll(".reveal").forEach(el => {
-  observer.observe(el);
-});
-
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-</script>
 
 </body>
 </html>
-
