@@ -345,6 +345,7 @@ footer {
 </div>
 
 
+
     <div class="hero-text">
         <h3>Hello, Welcome to My Portfolio!</h3>
 
