@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -342,7 +341,7 @@ footer {
 
     
 <div class="profile-container">
-    <img src="profile.jpg" alt="My profile picture" class="profile">
+    <img src="profile.jpg" alt="My Profile Picture" class="profile">
 </div>
 
 
