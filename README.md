@@ -339,9 +339,11 @@ footer {
 <!-- HOME -->
 <section class="hero" id="home">
 
-    <div class="profile">
-    <img src="profile.jpg" alt="Adznel's Profile Picture">
+    
+<div class="profile-container">
+    <img src="profile.jpg" alt="My Profile Picture" class="profile">
 </div>
+
 
     <div class="hero-text">
         <h3>Hello, Welcome to My Portfolio!</h3>
