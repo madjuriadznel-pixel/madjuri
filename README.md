@@ -341,7 +341,7 @@ footer {
 
     
 <div class="profile-container">
-    <img src="Profile.jpg" alt="My Profile Picture" class="profile">
+    <img src="profile.jpg" alt="My Profile Picture" class="profile">
 </div>
 
 
